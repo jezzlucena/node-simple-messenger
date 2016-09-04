@@ -27,7 +27,7 @@ The most important files for the implementation of this are:
 
 * /server.js
   * /routes/messages.js
-    * /views/index.html
+  * /views/index.html
     * /views/js/main.js
     * /views/css/main.css
 
