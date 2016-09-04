@@ -64,6 +64,8 @@ html, body {
   .messenger .send-area {
     display: flex;
     flex-direction: row;
+    flex-grow: 0;
+    min-height: 40px;
   }
     .messenger .send-area textarea {
       width: 100%;
