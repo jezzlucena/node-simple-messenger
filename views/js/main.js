@@ -14,7 +14,7 @@ $.urlParam = function(name){
 $(document).ready(function(){
   autosize($("#send-area"));
 
-  $('#user-name').val($.urlParam('userName'));
+  $('#username').val($.urlParam('userName'));
 
   $.ajax({
      url: serverURL + apiURI,
@@ -87,7 +87,11 @@ function sendMessage() {
      dataType: "json",
      contentType: "application/json",
      complete: function(data) {
-       location.reload();
+       if($.urlParam('userName') != $('#username').val()){
+         location.href = location.href.split("?")[0] + "?userName=" + $('#username').val();
+       }else{
+         location.reload();
+       }
        $('#send-area').val('');
        console.log(data);
      }
