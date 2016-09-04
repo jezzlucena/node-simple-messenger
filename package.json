@@ -1,0 +1,11 @@
+{
+  "name": "simple-messenger",
+  "description": "Simple Messenger Application",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.8.x",
+    "mongodb": "2.x",
+    "body-parser": "1.x"
+  }
+}

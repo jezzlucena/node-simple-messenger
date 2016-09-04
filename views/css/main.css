@@ -1,0 +1,76 @@
+html, body {
+  font-family: Helvetica, Arial;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: #fafafa;
+}
+
+.app {
+  min-height: 100%;
+}
+
+.messenger-container {
+  min-height: 100%;
+}
+
+
+.error {
+  font-size: 10px;
+  color: red;
+  display: none;
+}
+
+.messenger {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 50px;
+  background-color: white;
+  box-shadow: 0 0 10px black;
+  min-height: 100%;
+}
+
+  .messenger .header{
+    text-align: center;
+  }
+    .messenger .header .title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .messenger .header .subtitle {
+      font-size: 10px;
+      color: #999;
+    }
+
+  .messenger .messages {
+    margin-bottom: 20px;
+  }
+    .messenger .messages .message {
+      margin-bottom: 10px;
+    }
+      .messenger .messages .message.template {
+        display: none;
+      }
+      .messenger .messages .message .user-name {
+        font-weight: bold;
+      }
+      .messenger .messages .message .content {
+      }
+
+  .messenger .send-area {
+    display: flex;
+    flex-direction: row;
+  }
+    .messenger .send-area textarea {
+      width: 100%;
+    }
+    .messenger .send-area .send-btn {
+      padding: 10px 10px;
+      border: 1px solid black;
+      background-color: white;
+      cursor: pointer;
+      transition: 0.5s background-color ease;
+    }
+      .messenger .send-area .send-btn:hover {
+        background-color: #ddd;
+      }

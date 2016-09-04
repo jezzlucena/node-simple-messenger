@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+  <title>Simple Messenger 0.0.1 - by Jezz Lucena</title>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/autosize.min.js"></script>
+  <script src="js/main.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+  <div class="app">
+    <div class="messenger-container">
+      <div class="messenger">
+        <div class="header">
+          <div class="title">Simple Messenger 0.0.1</div>
+          <div class="subtitle">* Remember to reload to see new messages! We're low budget</div>
+          <br>
+          <div class="username-area">Your user name: <input type="text" id="username"></div>
+          <div class="username-area-error error">* User name is mandatory</div>
+        </div>
+
+        <hr>
+
+        <div class="messages">
+        </div>
+
+        <div class="send-area">
+          <textarea name="send-area" id="send-area" rows="2"></textarea>
+          <div class="send-btn">Send</div>
+        </div>
+        <div class="send-area-error error">* Message is mandatory.</div>
+
+        <hr>
+      </div>
+    </div>
+  </div>
+</body>
+
+<div class="message template">
+  <div class="user-name" data-replace="user_name"></div>
+  <div class="content" data-replace="content"></div>
+</div>
