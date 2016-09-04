@@ -22,6 +22,17 @@ Then access http://localhost:3000/ and start playing with your new messenger.
 
 * Make sure you're running MongoDB on a separate terminal. 
 
+## Important Files
+The most important files for the implementation of this are:
+
+* /server.js
+  * /routes/messages.js
+    * /views/index.html
+    * /views/js/main.js
+    * /views/css/main.css
+
+All files documented to improve code readability
+
 ## Contact
 
 Jezz Lucena
