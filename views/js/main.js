@@ -29,8 +29,12 @@ $(document).ready(function(){
          newMessage.find('.user-name').html(messages[i]['user_name'] + ':');
          newMessage.find('.content').html(messages[i]['content']);
 
-         $('.messages').append(newMessage);
+         $('.messages-container').append(newMessage);
        }
+
+       setTimeout(function(){
+         $(".messages").animate({ scrollTop: $('.messages-container').height() }, 1000);
+       }, 300);
      }
   });
 
@@ -83,6 +87,7 @@ function sendMessage() {
      dataType: "json",
      contentType: "application/json",
      complete: function(data) {
+       location.reload();
        $('#send-area').val('');
        console.log(data);
      }
@@ -105,5 +110,3 @@ function shake(div){
     $(div).animate({ left: 0},interval);
 
 }//shake
-
-//FROM HERE https://bradleyhamilton.com/projects/shake/index.html
