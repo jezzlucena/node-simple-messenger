@@ -1,5 +1,6 @@
 var mongo = require('mongodb');
 
+//MongoDB configuration
 var Server = mongo.Server,
     Db = mongo.Db,
     BSON = mongo.BSONPure;
@@ -7,9 +8,12 @@ var Server = mongo.Server,
 var server = new Server('localhost', 27017, {auto_reconnect: true});
 db = new Db('simple-messenger-db', server);
 
+//Opening the connection with the database
 db.open(function(err, db) {
     if(!err) {
         console.log("Connected to 'simple-messenger-db' database");
+
+        //In case the database is empty, populate it
         db.collection('messages', {strict:true}, function(err, collection) {
             if (err) {
                 console.log("The 'messages' collection doesn't exist. Creating it with sample data...");
@@ -19,6 +23,7 @@ db.open(function(err, db) {
     }
 });
 
+//Find all messages, ordered by "created_on"
 exports.findAll = function(req, res) {
     db.collection('messages', function(err, collection) {
         collection.find().sort({created_on: 1}).toArray(function(err, items) {
@@ -27,6 +32,7 @@ exports.findAll = function(req, res) {
     });
 };
 
+//Add a message to the database
 exports.addMessage = function(req, res) {
     var message = req.body;
     console.log('Adding message: ' + JSON.stringify(message));

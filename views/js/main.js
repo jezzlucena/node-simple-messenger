@@ -1,16 +1,6 @@
 var serverURL = "http://localhost:3000"
 var apiURI = "/messenger"
 
-$.urlParam = function(name){
-    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    if (results==null){
-       return null;
-    }
-    else{
-       return results[1] || 0;
-    }
-}
-
 $(document).ready(function(){
   autosize($("#send-area"));
 
@@ -52,9 +42,11 @@ $(document).ready(function(){
   });
 });
 
+// Function that sends messages to the RESTful API
 function sendMessage() {
   var error = false;
 
+  // Validate the fields and show error messages
   if($('#username').val()){
     $('.username-area-error').hide();
   }else{
@@ -71,15 +63,18 @@ function sendMessage() {
     error = true;
   }
 
+  // If there's any error, don't send the message
   if (error) {
     return false;
   }
 
+  // Assemble the data for the POST request
   var data = {
     'user_name': $('#username').val(),
     'content': $('#send-area').val()
   }
 
+  // jQuery POST request via the ajax(...) function
   $.ajax({
      url: serverURL + apiURI,
      data: JSON.stringify(data),
@@ -87,15 +82,26 @@ function sendMessage() {
      dataType: "json",
      contentType: "application/json",
      complete: function(data) {
+       // Reload the document
        if($.urlParam('userName') != $('#username').val()){
          location.href = location.href.split("?")[0] + "?userName=" + $('#username').val();
        }else{
          location.reload();
        }
-       $('#send-area').val('');
-       console.log(data);
      }
   });
+}
+
+// Regular expression to read url parameters,
+// used on the maintenance of the user name
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
 }
 
 function shake(div){
