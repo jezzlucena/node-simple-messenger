@@ -31,7 +31,7 @@ The most important files for the implementation of this are:
     * /views/js/main.js
     * /views/css/main.css
 
-All files documented to improve code readability
+Relevant files documented, to improve code readability
 
 ## Contact
 
