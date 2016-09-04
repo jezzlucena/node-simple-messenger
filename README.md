@@ -25,7 +25,9 @@ Then access http://localhost:3000/ and start playing with your new messenger.
 ## Contact
 
 Jezz Lucena
+
 jezzlucena@gmail.com
+
 fb.me/jezzlucena
 
 ## References
